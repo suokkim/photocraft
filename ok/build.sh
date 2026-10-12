@@ -28,7 +28,7 @@ WORK="$ROOT/target/ok-package"
 APP="$WORK/PhotoCraft ok.app"
 rm -rf "$WORK" && mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "target/$TARGET/release/photocraft" "$APP/Contents/MacOS/PhotoCraft"
-cp assets/app-icon/photocraft.icns "$APP/Contents/Resources/PhotoCraft.icns"
+"$ROOT/ok/icon.sh" assets/app-icon/photocraft.icns "$APP/Contents/Resources/PhotoCraft.icns"   # 주황 + ok 표 아이콘
 sed -e "s/@VERSION@/$VERSION/g" -e "s/@SHORT_VERSION@/$BASE/g" -e "s/@BUILD_SHA@/$SHA/g" \
     -e "s#<string>ai.storyteller.photocraft</string>#<string>ai.storyteller.photocraft.ok</string>#" \
     packaging/macos/Info.plist.in >"$APP/Contents/Info.plist"
